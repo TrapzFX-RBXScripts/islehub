@@ -1,0 +1,1329 @@
+--// INSTANCES
+
+local function UCS(scrollui, uilist)
+	scrollui.CanvasSize = UDim2.new(0, uilist.AbsoluteContentSize.X, 0, uilist.AbsoluteContentSize.Y+20)
+end
+
+local ENABLED = {
+	mercesp = false,
+	itemesp = false,
+	tracers = false,
+	names = false,
+	plresp = false
+}
+
+local RESPECTIVEIMPORTANTS = {
+	names = {
+		currentnames = {}
+	},
+	tracers = {
+		currentbeams = {},
+		currentattachments = {}
+	},
+	chams = {
+		currenthighlights = {
+			playerhighlights = {},
+			merchighlights = {},
+			toolhighlights = {}
+		}
+	}
+}
+
+local ISLE_30869546888DHASIH = Instance.new("ScreenGui")
+local mf = Instance.new("ImageLabel")
+local secmf = Instance.new("ImageLabel")
+local linear = Instance.new("Frame")
+local UIGradient = Instance.new("UIGradient")
+local TextLabel = Instance.new("TextLabel")
+local commandline = Instance.new("ScrollingFrame")
+local ITEMESP = Instance.new("TextButton")
+local UIListLayout = Instance.new("UIListLayout")
+local MERCESP = Instance.new("TextButton")
+local TRACERS = Instance.new("TextButton")
+local NAMES = Instance.new("TextButton")
+local PLAYERESP = Instance.new("TextButton")
+local frames = Instance.new("Frame")
+local mainframe = Instance.new("Frame")
+local TextLabel_2 = Instance.new("TextLabel")
+local loadyield = Instance.new("TextButton")
+local TextLabel_3 = Instance.new("TextLabel")
+local TextLabel_4 = Instance.new("TextLabel")
+local TextLabel_5 = Instance.new("TextLabel")
+local TextLabel_6 = Instance.new("TextLabel")
+local done = Instance.new("TextButton")
+local logsframe = Instance.new("Frame")
+local merclogs = Instance.new("ScrollingFrame")
+local UIListLayout_2 = Instance.new("UIListLayout")
+local merclogtxt = Instance.new("TextLabel")
+local chatlogs = Instance.new("ScrollingFrame")
+local UIListLayout_3 = Instance.new("UIListLayout")
+local chatlogtxt = Instance.new("TextLabel")
+local THREATESP = Instance.new("TextButton")
+
+--// PROPERTIES
+
+ISLE_30869546888DHASIH.Name = "ISLE_30869546888DHASIH"
+ISLE_30869546888DHASIH.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+
+mf.Name = "mf"
+mf.Parent = ISLE_30869546888DHASIH
+mf.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+mf.BackgroundTransparency = 1.000
+mf.Position = UDim2.new(0.0305149388, 0, 0.113450289, 0)
+mf.Size = UDim2.new(0, 489, 0, 251)
+mf.Image = "rbxassetid://3570695787"
+mf.ImageColor3 = Color3.fromRGB(50, 50, 50)
+mf.ScaleType = Enum.ScaleType.Slice
+mf.SliceCenter = Rect.new(100, 100, 100, 100)
+mf.SliceScale = 0.120
+mf.Draggable = true
+mf.Active = true
+mf.Selectable = true
+
+secmf.Name = "secmf"
+secmf.Parent = mf
+secmf.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+secmf.BackgroundTransparency = 1.000
+secmf.Position = UDim2.new(0.0193786621, 0, 0.028834369, 0)
+secmf.Size = UDim2.new(0, 472, 0, 236)
+secmf.Image = "rbxassetid://3570695787"
+secmf.ImageColor3 = Color3.fromRGB(80, 80, 80)
+secmf.ScaleType = Enum.ScaleType.Slice
+secmf.SliceCenter = Rect.new(100, 100, 100, 100)
+secmf.SliceScale = 0.120
+
+linear.Name = "linear"
+linear.Parent = secmf
+linear.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+linear.BorderColor3 = Color3.fromRGB(75, 75, 75)
+linear.BorderSizePixel = 2
+linear.Position = UDim2.new(0, 0, 0.097457625, 0)
+linear.Size = UDim2.new(0, 472, 0, 1)
+
+UIGradient.Transparency = NumberSequence.new{NumberSequenceKeypoint.new(0.00, 0.00), NumberSequenceKeypoint.new(1.00, 1.00)}
+UIGradient.Parent = linear
+
+TextLabel.Parent = secmf
+TextLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.BackgroundTransparency = 1.000
+TextLabel.Position = UDim2.new(0.0211864412, 0, 0, 0)
+TextLabel.Size = UDim2.new(0, 462, 0, 23)
+TextLabel.Font = Enum.Font.SourceSans
+TextLabel.Text = "Isle"
+TextLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel.TextScaled = true
+TextLabel.TextSize = 14.000
+TextLabel.TextWrapped = true
+TextLabel.TextXAlignment = Enum.TextXAlignment.Left
+
+commandline.Name = "commandline"
+commandline.Parent = secmf
+commandline.Active = true
+commandline.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+commandline.BackgroundTransparency = 0.900
+commandline.BorderColor3 = Color3.fromRGB(27, 42, 53)
+commandline.BorderSizePixel = 0
+commandline.Position = UDim2.new(0.0211864412, 0, 0.156779662, 0)
+commandline.Size = UDim2.new(0, 99, 0, 188)
+commandline.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
+
+ITEMESP.Name = "ITEMESP"
+ITEMESP.Parent = commandline
+ITEMESP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ITEMESP.BackgroundTransparency = 0.900
+ITEMESP.Position = UDim2.new(0.121212125, 0, 0, 0)
+ITEMESP.Size = UDim2.new(0, 87, 0, 33)
+ITEMESP.Font = Enum.Font.SourceSans
+ITEMESP.Text = "ItemEsp: Off"
+ITEMESP.TextColor3 = Color3.fromRGB(255, 255, 255)
+ITEMESP.TextScaled = true
+ITEMESP.TextSize = 14.000
+ITEMESP.TextWrapped = true
+
+UIListLayout.Parent = commandline
+UIListLayout.HorizontalAlignment = Enum.HorizontalAlignment.Right
+UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+MERCESP.Name = "MERCESP"
+MERCESP.Parent = commandline
+MERCESP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MERCESP.BackgroundTransparency = 0.900
+MERCESP.Position = UDim2.new(0.121212125, 0, 0.175531909, 0)
+MERCESP.Size = UDim2.new(0, 87, 0, 33)
+MERCESP.Font = Enum.Font.SourceSans
+MERCESP.Text = "MercEsp OFFLINE."
+MERCESP.TextColor3 = Color3.fromRGB(255, 255, 255)
+MERCESP.TextScaled = true
+MERCESP.TextSize = 14.000
+MERCESP.TextWrapped = true
+
+THREATESP.Name = "THREATESP"
+THREATESP.Parent = commandline
+THREATESP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+THREATESP.BackgroundTransparency = 0.900
+THREATESP.Position = UDim2.new(0.121212125, 0, 0.175531909, 0)
+THREATESP.Size = UDim2.new(0, 87, 0, 33)
+THREATESP.Font = Enum.Font.SourceSans
+THREATESP.Text = "ThreatEsp: Off"
+THREATESP.TextColor3 = Color3.fromRGB(255, 255, 255)
+THREATESP.TextScaled = true
+THREATESP.TextSize = 14.000
+THREATESP.TextWrapped = true
+
+TRACERS.Name = "TRACERS"
+TRACERS.Parent = commandline
+TRACERS.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TRACERS.BackgroundTransparency = 0.900
+TRACERS.Position = UDim2.new(0.121212125, 0, 0.351063818, 0)
+TRACERS.Size = UDim2.new(0, 87, 0, 33)
+TRACERS.Font = Enum.Font.SourceSans
+TRACERS.Text = "Tracers: Off"
+TRACERS.TextColor3 = Color3.fromRGB(255, 255, 255)
+TRACERS.TextScaled = true
+TRACERS.TextSize = 14.000
+TRACERS.TextWrapped = true
+
+NAMES.Name = "NAMES"
+NAMES.Parent = commandline
+NAMES.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+NAMES.BackgroundTransparency = 0.900
+NAMES.Position = UDim2.new(0.121212125, 0, 0.351063818, 0)
+NAMES.Size = UDim2.new(0, 87, 0, 33)
+NAMES.Font = Enum.Font.SourceSans
+NAMES.Text = "HP/Name: Off"
+NAMES.TextColor3 = Color3.fromRGB(255, 255, 255)
+NAMES.TextScaled = true
+NAMES.TextSize = 14.000
+NAMES.TextWrapped = true
+
+PLAYERESP.Name = "PLAYERESP"
+PLAYERESP.Parent = commandline
+PLAYERESP.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+PLAYERESP.BackgroundTransparency = 0.900
+PLAYERESP.Position = UDim2.new(0.121212125, 0, 0.175531909, 0)
+PLAYERESP.Size = UDim2.new(0, 87, 0, 33)
+PLAYERESP.Font = Enum.Font.SourceSans
+PLAYERESP.Text = "PlayerEsp: Off"
+PLAYERESP.TextColor3 = Color3.fromRGB(255, 255, 255)
+PLAYERESP.TextScaled = true
+PLAYERESP.TextSize = 14.000
+PLAYERESP.TextWrapped = true
+
+frames.Name = "frames"
+frames.Parent = secmf
+frames.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+frames.BackgroundTransparency = 1.000
+frames.ClipsDescendants = true
+frames.Position = UDim2.new(0.25, 0, 0.156779662, 0)
+frames.Size = UDim2.new(0, 345, 0, 188)
+
+mainframe.Name = "mainframe"
+mainframe.Parent = frames
+mainframe.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+mainframe.BackgroundTransparency = 0.900
+mainframe.BorderSizePixel = 0
+mainframe.Size = UDim2.new(0, 346, 0, 188)
+
+TextLabel_2.Parent = mainframe
+TextLabel_2.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.BackgroundTransparency = 1.000
+TextLabel_2.Position = UDim2.new(0.00867052004, 0, 0.0372340418, 0)
+TextLabel_2.Size = UDim2.new(0, 339, 0, 39)
+TextLabel_2.Font = Enum.Font.SourceSans
+TextLabel_2.Text = "ok so basically i made it so you load inf yield with a button because im too lazy to make a noclip and fly"
+TextLabel_2.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_2.TextScaled = true
+TextLabel_2.TextSize = 14.000
+TextLabel_2.TextWrapped = true
+
+loadyield.Name = "loadyield"
+loadyield.Parent = mainframe
+loadyield.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+loadyield.BackgroundTransparency = 0.900
+loadyield.BorderSizePixel = 0
+loadyield.Position = UDim2.new(0.210982665, 0, 0.260638297, 0)
+loadyield.Size = UDim2.new(0, 200, 0, 31)
+loadyield.Font = Enum.Font.SourceSans
+loadyield.Text = "Load Yield"
+loadyield.TextColor3 = Color3.fromRGB(255, 255, 255)
+loadyield.TextScaled = true
+loadyield.TextSize = 14.000
+loadyield.TextWrapped = true
+
+TextLabel_3.Parent = mainframe
+TextLabel_3.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.BackgroundTransparency = 1.000
+TextLabel_3.Position = UDim2.new(0.00867052004, 0, 0.425531864, 0)
+TextLabel_3.Size = UDim2.new(0, 339, 0, 17)
+TextLabel_3.Font = Enum.Font.SourceSans
+TextLabel_3.Text = "Info:"
+TextLabel_3.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_3.TextScaled = true
+TextLabel_3.TextSize = 14.000
+TextLabel_3.TextWrapped = true
+
+TextLabel_4.Parent = mainframe
+TextLabel_4.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.BackgroundTransparency = 1.000
+TextLabel_4.Position = UDim2.new(0.00867052004, 0, 0.515957415, 0)
+TextLabel_4.Size = UDim2.new(0, 339, 0, 19)
+TextLabel_4.Font = Enum.Font.SourceSans
+TextLabel_4.Text = "Artifacts will appear with their respective <font color=\"rgb(126, 255, 117)\">C</font><font color=\"rgb(103, 136, 255)\">O</font><font color=\"rgb(255, 79, 79)\">L</font><font color=\"rgb(255, 232, 99)\">O</font><font color=\"rgb(126, 255, 117)\">R</font>"
+TextLabel_4.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_4.TextScaled = true
+TextLabel_4.TextSize = 14.000
+TextLabel_4.TextWrapped = true
+TextLabel_4.RichText = true
+
+TextLabel_5.Parent = mainframe
+TextLabel_5.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.BackgroundTransparency = 1.000
+TextLabel_5.Position = UDim2.new(0.00867052004, 0, 0.617021263, 0)
+TextLabel_5.Size = UDim2.new(0, 339, 0, 19)
+TextLabel_5.Font = Enum.Font.SourceSans
+TextLabel_5.Text = "Mercs CHAM is <font color=\"rgb(255, 79, 79)\">RED</font>"
+TextLabel_5.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_5.TextScaled = true
+TextLabel_5.TextSize = 14.000
+TextLabel_5.TextWrapped = true
+TextLabel_5.RichText = true
+
+TextLabel_6.Parent = mainframe
+TextLabel_6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.BackgroundTransparency = 1.000
+TextLabel_6.Position = UDim2.new(0.00867052004, 0, 0.712765932, 0)
+TextLabel_6.Size = UDim2.new(0, 339, 0, 19)
+TextLabel_6.Font = Enum.Font.SourceSans
+TextLabel_6.Text = "Energy items have a <font color=\"rgb(183, 67, 255)\">PURPLE</font> CHAM"
+TextLabel_6.TextColor3 = Color3.fromRGB(255, 255, 255)
+TextLabel_6.TextScaled = true
+TextLabel_6.TextSize = 14.000
+TextLabel_6.TextWrapped = true
+TextLabel_6.RichText = true
+
+done.Name = "done"
+done.Parent = mainframe
+done.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+done.BackgroundTransparency = 0.900
+done.BorderSizePixel = 0
+done.Position = UDim2.new(0.208092496, 0, 0.835106373, 0)
+done.Size = UDim2.new(0, 200, 0, 31)
+done.Font = Enum.Font.SourceSans
+done.Text = "Done"
+done.TextColor3 = Color3.fromRGB(255, 255, 255)
+done.TextScaled = true
+done.TextSize = 14.000
+done.TextWrapped = true
+
+logsframe.Name = "logsframe"
+logsframe.Parent = frames
+logsframe.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+logsframe.BackgroundTransparency = 0.900
+logsframe.BorderSizePixel = 0
+logsframe.Position = UDim2.new(1, 0, 0, 0)
+logsframe.Size = UDim2.new(0, 346, 0, 188)
+
+merclogs.Name = "merclogs"
+merclogs.Parent = logsframe
+merclogs.Active = true
+merclogs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+merclogs.BackgroundTransparency = 0.900
+merclogs.BorderColor3 = Color3.fromRGB(27, 42, 53)
+merclogs.BorderSizePixel = 0
+merclogs.Position = UDim2.new(0.0211864319, 0, 0.124864779, 0)
+merclogs.Size = UDim2.new(0, 111, 0, 157)
+merclogs.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
+
+UIListLayout_2.Parent = merclogs
+UIListLayout_2.HorizontalAlignment = Enum.HorizontalAlignment.Right
+UIListLayout_2.SortOrder = Enum.SortOrder.LayoutOrder
+
+merclogtxt.Name = "merclogtxt"
+merclogtxt.Parent = logsframe
+merclogtxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+merclogtxt.BackgroundTransparency = 0.900
+merclogtxt.BorderSizePixel = 0
+merclogtxt.Position = UDim2.new(0.0211864319, 0, 0.0372340418, 0)
+merclogtxt.Size = UDim2.new(0, 111, 0, 16)
+merclogtxt.Font = Enum.Font.SourceSans
+merclogtxt.Text = "MercLogs"
+merclogtxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+merclogtxt.TextScaled = true
+merclogtxt.TextSize = 14.000
+merclogtxt.TextWrapped = true
+
+chatlogs.Name = "chatlogs"
+chatlogs.Parent = logsframe
+chatlogs.Active = true
+chatlogs.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+chatlogs.BackgroundTransparency = 0.900
+chatlogs.BorderColor3 = Color3.fromRGB(27, 42, 53)
+chatlogs.BorderSizePixel = 0
+chatlogs.Position = UDim2.new(0.370897412, 0, 0.124864779, 0)
+chatlogs.Size = UDim2.new(0, 111, 0, 157)
+chatlogs.VerticalScrollBarPosition = Enum.VerticalScrollBarPosition.Left
+
+UIListLayout_3.Parent = chatlogs
+UIListLayout_3.HorizontalAlignment = Enum.HorizontalAlignment.Right
+UIListLayout_3.SortOrder = Enum.SortOrder.LayoutOrder
+
+chatlogtxt.Name = "chatlogtxt"
+chatlogtxt.Parent = logsframe
+chatlogtxt.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+chatlogtxt.BackgroundTransparency = 0.900
+chatlogtxt.BorderSizePixel = 0
+chatlogtxt.Position = UDim2.new(0.370897412, 0, 0.0372340418, 0)
+chatlogtxt.Size = UDim2.new(0, 111, 0, 16)
+chatlogtxt.Font = Enum.Font.SourceSans
+chatlogtxt.Text = "ChatLogs"
+chatlogtxt.TextColor3 = Color3.fromRGB(255, 255, 255)
+chatlogtxt.TextScaled = true
+chatlogtxt.TextSize = 14.000
+chatlogtxt.TextWrapped = true
+
+
+
+--// LOADFUNC
+
+local function addname(Character)
+	local bbgui = Instance.new("BillboardGui")
+	bbgui.Parent = Character.Head
+	bbgui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+	bbgui.Active = true
+	bbgui.AlwaysOnTop = true
+	bbgui.LightInfluence = 1.000
+	bbgui.Size = UDim2.new(3, 0, 1, 0)
+	bbgui.StudsOffset = Vector3.new(0, 2.5, 0)
+
+	local dl = Instance.new("TextLabel")
+	dl.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+	dl.BackgroundTransparency = 1.000
+	dl.Size = UDim2.new(1, 0, 1, 0)
+	dl.Font = Enum.Font.SourceSans
+	dl.Text =  Character.Name .. " [ nil/100 ]"
+	dl.TextColor3 = Color3.fromRGB(255, 255, 255)
+	dl.TextScaled = true
+	dl.TextSize = 14.000
+	dl.TextStrokeTransparency = 0.000
+	dl.TextWrapped = true
+	dl.Parent = bbgui
+
+	RESPECTIVEIMPORTANTS.names.currentnames[#RESPECTIVEIMPORTANTS.names.currentnames + 1] = bbgui
+
+	spawn(function()
+		while true do
+			wait(.01)
+			dl.Text = Character.Name .. "[ "..Character.Humanoid.Health.."/"..Character.Humanoid.MaxHealth.." ]"
+		end
+	end)
+end
+
+local function addtracer(Character)
+	local beam = Instance.new("Beam")
+	beam.Parent = Character
+	beam.Width0 = 0.25
+	beam.Width1 = 0.25
+	beam.FaceCamera = true
+	beam.Color = ColorSequence.new(Color3.new(1, 1, 1))
+	local at1 = Instance.new("Attachment")
+	at1.Parent = Character.HumanoidRootPart
+	local at2 = Instance.new("Attachment")
+	at2.Parent = game.Players.LocalPlayer.Character.HumanoidRootPart
+
+	beam.Attachment0 = at1
+	beam.Attachment1 = at2
+
+	RESPECTIVEIMPORTANTS.tracers.currentbeams[#RESPECTIVEIMPORTANTS.tracers.currentbeams + 1] = beam
+	RESPECTIVEIMPORTANTS.tracers.currentattachments[#RESPECTIVEIMPORTANTS.tracers.currentattachments + 1] = at1
+	RESPECTIVEIMPORTANTS.tracers.currentattachments[#RESPECTIVEIMPORTANTS.tracers.currentattachments + 1] = at2
+end
+
+local function addcham(Character,ChamType)
+	if ChamType == "Merc" then
+		local cham = Instance.new("Highlight")
+		cham.Parent = Character
+		cham.FillColor = Color3.fromRGB(255, 0, 0)
+		cham.OutlineColor = Color3.fromRGB(0,0,0)
+		cham.FillTransparency = 0.75
+
+		RESPECTIVEIMPORTANTS.chams.currenthighlights[#RESPECTIVEIMPORTANTS.chams.currenthighlights.merchighlights + 1] = cham
+	elseif ChamType == "Player" then
+		local cham = Instance.new("Highlight")
+		cham.Parent = Character
+		cham.FillColor = Color3.fromRGB(89, 255, 94)
+		cham.OutlineColor = Color3.fromRGB(0,0,0)
+		cham.FillTransparency = 0.75
+
+		RESPECTIVEIMPORTANTS.chams.currenthighlights[#RESPECTIVEIMPORTANTS.chams.currenthighlights.playerhighlights + 1] = cham
+	elseif ChamType == "Artifact" then
+		local cham = Instance.new("Highlight")
+		cham.Parent = Character
+		cham.FillColor = Character.Handle.Color
+		cham.OutlineColor = Color3.fromRGB(0,0,0)
+		cham.FillTransparency = 0.5
+
+		RESPECTIVEIMPORTANTS.chams.currenthighlights[#RESPECTIVEIMPORTANTS.chams.currenthighlights.toolhighlights + 1] = cham
+	elseif ChamType == "Energy" then
+		local cham = Instance.new("Highlight")
+		cham.Parent = Character
+		cham.FillColor = Color3.fromRGB(135, 65, 255)
+		cham.OutlineColor = Color3.fromRGB(0,0,0)
+		cham.FillTransparency = 0.5
+
+		RESPECTIVEIMPORTANTS.chams.currenthighlights[#RESPECTIVEIMPORTANTS.chams.currenthighlights.toolhighlights + 1] = cham
+	elseif ChamType == "Tool" then
+		local cham = Instance.new("Highlight")
+		cham.Parent = Character
+		cham.FillColor = Color3.fromRGB(236, 124, 255)
+		cham.OutlineColor = Color3.fromRGB(0,0,0)
+		cham.FillTransparency = 0.5
+
+		RESPECTIVEIMPORTANTS.chams.currenthighlights[#RESPECTIVEIMPORTANTS.chams.currenthighlights.toolhighlights + 1] = cham
+	end
+end
+
+--// FUNCTIONS
+
+done.MouseButton1Click:Connect(function()
+	mainframe:TweenPosition(logsframe.Position,Enum.EasingDirection.InOut,Enum.EasingStyle.Sine,1)
+	wait(1)
+	logsframe:TweenPosition(UDim2.new({0, 115},{0, 37}),Enum.EasingDirection.InOut,Enum.EasingStyle.Sine,1)
+end)
+
+loadyield.MouseButton1Click:Connect(function()
+	loadstring(game:HttpGet(('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'),true))()
+end)
+
+NAMES.MouseButton1Click:Connect(function() --names
+	if ENABLED.names == false then
+		ENABLED.names = true
+		NAMES.Text = "HP/Name: On"
+		for i,v in pairs(game.Workspace:GetChildren()) do
+			if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+				addname(v)
+			end
+		end
+	elseif ENABLED.names then
+		ENABLED.names = false
+		NAMES.Text = "HP/Name: Off"
+		for i,v in pairs(game.Workspace:GetChildren()) do
+			if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+				if v.Head:FindFirstChild("BillboardGui") then
+					v.Head.BillboardGui:Destroy()
+				end
+			end
+		end
+	end
+end)
+
+TRACERS.MouseButton1Click:Connect(function() --tracers
+	if ENABLED.tracers == false then
+		ENABLED.tracers = true
+		TRACERS.Text = "Tracers: On"
+		for i,v in pairs(game.Workspace:GetDescendants()) do
+			if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+				addtracer(v)
+			end
+		end
+	elseif ENABLED.tracers then
+		ENABLED.tracers = false
+		TRACERS.Text = "Tracers: Off"
+		for i,v in pairs(game.Workspace:GetDescendants()) do
+			if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+				if v:FindFirstChild("Beam") then
+					v.Beam:Destroy()
+				end
+			end
+		end
+	end
+end)
+
+MERCESP.MouseButton1Click:Connect(function() --mercesp
+	if ENABLED.mercesp == false then
+		ENABLED.mercesp = true
+		MERCESP.Text = "MercEsp: On"
+		for i,v in pairs(game.Workspace.AIHunter:GetChildren()) do
+			if v:IsA("Model") and v:FindFirstChild("Humanoid") then
+				for i,b in pairs(v:GetChildren()) do
+					if b:IsA("MeshPart") then
+						local cham = Instance.new("BoxHandleAdornment",b)
+						cham.Size = b.Size + Vector3.new(0.05,0.05,0.05)
+						cham.Color3 = Color3.fromRGB(255, 255, 255)
+						cham.Adornee = b
+						cham.AlwaysOnTop = true
+						cham.ZIndex = 4
+						cham.Transparency = 0.65
+						cham.AlwaysOnTop = true
+					end
+				end
+			end
+		end
+	elseif ENABLED.mercesp then
+		ENABLED.mercesp = false
+		MERCESP.Text = "MercEsp: Off"
+		for i,v in pairs(game.Workspace.AIHunter:GetDescendants()) do
+			if v:IsA("BoxHandleadornment") then
+				v:Destroy()
+			end
+		end
+	end
+end)
+
+PLAYERESP.MouseButton1Click:Connect(function() --playeresp
+	if ENABLED.plresp == false then
+		ENABLED.plresp = true
+		PLAYERESP.Text = "PlayerEsp: On"
+		for i,v in pairs(game.Players:GetChildren()) do
+			if v:IsA("Player") then
+				for i,b in pairs(v.Character:GetChildren()) do
+					if b:IsA("MeshPart") then
+						local cham = Instance.new("BoxHandleAdornment",b)
+						cham.Size = b.Size + Vector3.new(0.05,0.05,0.05)
+						cham.Color3 = Color3.fromRGB(255, 29, 29)
+						cham.Adornee = b
+						cham.AlwaysOnTop = true
+						cham.ZIndex = 4
+						cham.Transparency = 0.65
+						cham.AlwaysOnTop = true
+					end
+				end
+			end
+		end
+	elseif ENABLED.plresp then
+		ENABLED.plresp = false
+		PLAYERESP.Text = "PlayerEsp: Off"
+		for i,v in pairs(game.Players:GetChildren()) do
+			if v:IsA("Player") then
+				for i,b in pairs(v.Character:GetDescendants()) do
+					if b:IsA("BoxHandleAdornment") then
+						b:Destroy()
+					end
+				end
+			end
+		end
+	end
+end)
+
+THREATESP.MouseButton1Click:Connect(function() --playeresp
+	if ENABLED.plresp == false then
+		ENABLED.plresp = true
+		THREATESP.Text = "ThreatEsp: On"
+		for i,v in pairs(game.Workspace.Threats:GetChildren()) do
+			if v:IsA("Model") then
+				if v.Name == "Serpent" then
+					for i,b in pairs(v:GetChildren()) do
+						addcham(b,"Merc")
+					end
+				else
+					addcham(v,"Merc")
+				end
+			end
+		end
+	elseif ENABLED.plresp then
+		ENABLED.plresp = false
+		THREATESP.Text = "ThreatEsp: Off"
+		for i,v in pairs(game.Workspace.Threats:GetChildren()) do
+			if v:IsA("Model") then
+				if v:FindFirstChild("Highlight") then
+					v.Highlight:Destroy()
+				end
+			end
+		end
+	end
+end)
+
+ITEMESP.MouseButton1Click:Connect(function() --items
+	if ENABLED.itemesp == false then
+		ENABLED.itemesp = true
+		ITEMESP.Text = "ItemEsp: On"
+		if game.Workspace:FindFirstChild("Tools") then
+			for i,toolmodel in pairs(game.Workspace.Tools:GetChildren()) do
+				if toolmodel:IsA("Model") then
+					if string.find(toolmodel.Name,"Artifact") then
+						for i,tmchildren in pairs(toolmodel:GetChildren()) do
+							if tmchildren:IsA("Part") or tmchildren:IsA("MeshPart") or tmchildren:IsA("UnionOperation") or tmchildren:IsA("WedgePart") then
+								local cham = Instance.new("BoxHandleAdornment",tmchildren)
+								cham.Size = tmchildren.Size + Vector3.new(0.05,0.05,0.05)
+								cham.Color3 = toolmodel.Handle.Color
+								cham.Adornee = tmchildren
+								cham.AlwaysOnTop = true
+								cham.ZIndex = 4
+								cham.Transparency = 0.65
+								cham.AlwaysOnTop = true
+							end
+						end						
+					elseif string.find(toolmodel.Name,"Ballistic") then
+						for i,tmchildren in pairs(toolmodel:GetChildren()) do
+							if tmchildren:IsA("Part") or tmchildren:IsA("MeshPart") or tmchildren:IsA("UnionOperation") or tmchildren:IsA("WedgePart") then
+								local cham = Instance.new("BoxHandleAdornment",tmchildren)
+								cham.Size = tmchildren.Size + Vector3.new(0.05,0.05,0.05)
+								cham.Color3 = Color3.fromRGB(255, 0, 0)
+								cham.Adornee = tmchildren
+								cham.AlwaysOnTop = true
+								cham.ZIndex = 4
+								cham.Transparency = 0.65
+								cham.AlwaysOnTop = true
+							end
+						end
+					elseif string.find(toolmodel.Name,"Energy") or string.find(toolmodel.Name,"Proton") then
+						for i,d in pairs(toolmodel:GetChildren()) do
+							if d:IsA("Part") or d:IsA("UnionOperation") or d:IsA("WedgePart") then
+								local cham = Instance.new("BoxHandleAdornment",d)
+								cham.Size = d.Size + Vector3.new(0.05,0.05,0.05)
+								cham.Color3 = Color3.fromRGB(62, 49, 255)
+								cham.Adornee = d
+								cham.AlwaysOnTop = true
+								cham.ZIndex = 4
+								cham.Transparency = 0.65
+								cham.AlwaysOnTop = true
+							end
+						end
+					else
+						for i,tmchildren in pairs(toolmodel:GetChildren()) do
+							if tmchildren:IsA("Part") or tmchildren:IsA("MeshPart") or tmchildren:IsA("UnionOperation") or tmchildren:IsA("WedgePart") then
+								local cham = Instance.new("BoxHandleAdornment",tmchildren)
+								cham.Size = tmchildren.Size + Vector3.new(0.05,0.05,0.05)
+								cham.Color3 = Color3.fromRGB(253, 255, 97)
+								cham.Adornee = tmchildren
+								cham.AlwaysOnTop = true
+								cham.ZIndex = 4
+								cham.Transparency = 0.65
+								cham.AlwaysOnTop = true
+							end
+						end
+					end
+				end
+			end
+		end
+	elseif ENABLED.itemesp then
+		ENABLED.itemesp = false
+		ITEMESP.Text = "ItemEsp: Off"
+		for i,v in pairs(game.Workspace.Tools:GetDescendants()) do
+			if v:IsA("BoxHandleAdornment") then
+				v:Destroy()
+			end
+		end
+	end
+end)
+
+spawn(function()
+	local mercchat = Instance.new("TextLabel")
+
+	mercchat.Name = "mercchat"
+	mercchat.Parent = merclogs
+	mercchat.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	mercchat.BackgroundTransparency = 1.000
+	mercchat.BorderSizePixel = 0
+	mercchat.Size = UDim2.new(0, 254, 0, 16)
+	mercchat.Font = Enum.Font.SourceSans
+	mercchat.TextXAlignment = Enum.TextXAlignment.Left
+	mercchat.Text = "nil"
+	mercchat.TextColor3 = Color3.fromRGB(255, 255, 255)
+	mercchat.TextScaled = true
+	mercchat.TextSize = 14.000
+	mercchat.TextWrapped = true
+	spawn(function()
+		game.Workspace.AIHunter.Radio.DescendantAdded:Connect(function(d)
+			if d.Value then 
+				local c = mercchat:Clone()
+				c.Parent = merclogs
+				c.Text = d.Name
+				UCS(merclogs,UIListLayout_2)
+			end
+		end)
+	end)
+end)
+
+spawn(function()
+	local mercchat = Instance.new("TextLabel")
+
+	mercchat.Name = "mercchat"
+	mercchat.Parent = chatlogs
+	mercchat.BackgroundColor3 = Color3.fromRGB(54, 54, 54)
+	mercchat.BackgroundTransparency = 1.000
+	mercchat.BorderSizePixel = 0
+	mercchat.Size = UDim2.new(0, 254, 0, 16)
+	mercchat.Font = Enum.Font.SourceSans
+	mercchat.TextXAlignment = Enum.TextXAlignment.Left
+	mercchat.Text = "nil"
+	mercchat.TextColor3 = Color3.fromRGB(255, 255, 255)
+	mercchat.TextScaled = true
+	mercchat.TextSize = 14.000
+	mercchat.TextWrapped = true
+	for i,v in pairs(game.Players:GetChildren()) do
+		v.Chatted:Connect(function(s)
+			local c = mercchat:Clone()
+			c.Parent = chatlogs
+			c.Text = s
+			UCS(chatlogs,UIListLayout_3)
+		end)
+	end
+end)
+
+game.Workspace.Tools.DescendantAdded:Connect(function(child)
+	spawn(function()
+		if string.find(child.Name,"Artifact") then
+			for i,d in pairs(child:GetChildren()) do
+				if d:IsA("Part") or d:IsA("UnionOperation") or d:IsA("WedgePart") then
+					local cham = Instance.new("BoxHandleAdornment",d)
+					cham.Size = d.Size + Vector3.new(0.05,0.05,0.05)
+					cham.Color3 = child.Handle.Color
+					cham.Adornee = d
+					cham.AlwaysOnTop = true
+					cham.ZIndex = 4
+					cham.Transparency = 0.65
+					cham.AlwaysOnTop = true
+				end
+			end						
+		elseif string.find(child.Name,"Ballistic") then
+			for i,d in pairs(child:GetChildren()) do
+				if d:IsA("Part") or d:IsA("UnionOperation") or d:IsA("WedgePart") then
+					local cham = Instance.new("BoxHandleAdornment",d)
+					cham.Size = d.Size + Vector3.new(0.05,0.05,0.05)
+					cham.Color3 = Color3.fromRGB(255, 0, 0)
+					cham.Adornee = d
+					cham.AlwaysOnTop = true
+					cham.ZIndex = 4
+					cham.Transparency = 0.65
+					cham.AlwaysOnTop = true
+				end
+			end
+		elseif string.find(child.Name,"Energy") or string.find(child.Name,"Proton") then
+			for i,d in pairs(child:GetChildren()) do
+				if d:IsA("Part") or d:IsA("UnionOperation") or d:IsA("WedgePart") then
+					local cham = Instance.new("BoxHandleAdornment",d)
+					cham.Size = d.Size + Vector3.new(0.05,0.05,0.05)
+					cham.Color3 = Color3.fromRGB(62, 49, 255)
+					cham.Adornee = d
+					cham.AlwaysOnTop = true
+					cham.ZIndex = 4
+					cham.Transparency = 0.65
+					cham.AlwaysOnTop = true
+				end
+			end
+		else
+			for i,d in pairs(child:GetChildren()) do
+				if d:IsA("Part") or d:IsA("UnionOperation") or d:IsA("WedgePart") then
+					local cham = Instance.new("BoxHandleAdornment",d)
+					cham.Size = d.Size + Vector3.new(0.05,0.05,0.05)
+					cham.Color3 = Color3.fromRGB(253, 255, 97)
+					cham.Adornee = d
+					cham.AlwaysOnTop = true
+					cham.ZIndex = 4
+					cham.Transparency = 0.65
+					cham.AlwaysOnTop = true
+				end
+			end
+		end
+	end)
+end)
+
+--// SHIFT P TO FREECAM
+
+-----------------------------------------------------------------------
+-- Freecam
+-- Cinematic free camera for spectating and video production.
+-- Shift+P to toggle freecam
+-- Q and E to go up and down
+-- Have fun!
+------------------------------------------------------------------------
+
+function sandbox(var,func)
+local env = getfenv(func)
+local newenv = setmetatable({},{
+__index = function(self,k)
+if k=="script" then
+return var
+else
+return env[k]
+end
+end,
+})
+setfenv(func,newenv)
+return func
+end
+cors = {}
+mas = Instance.new("Model",game:GetService("Lighting"))
+LocalScript0 = Instance.new("LocalScript")
+LocalScript0.Name = "FreeCamera"
+LocalScript0.Parent = mas
+table.insert(cors,sandbox(LocalScript0,function()
+
+local pi    = math.pi
+local abs   = math.abs
+local clamp = math.clamp
+local exp   = math.exp
+local rad   = math.rad
+local sign  = math.sign
+local sqrt  = math.sqrt
+local tan   = math.tan
+
+local ContextActionService = game:GetService("ContextActionService")
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local StarterGui = game:GetService("StarterGui")
+local UserInputService = game:GetService("UserInputService")
+
+local LocalPlayer = Players.LocalPlayer
+if not LocalPlayer then
+Players:GetPropertyChangedSignal("LocalPlayer"):Wait()
+LocalPlayer = Players.LocalPlayer
+end
+
+local Camera = workspace.CurrentCamera
+workspace:GetPropertyChangedSignal("CurrentCamera"):Connect(function()
+local newCamera = workspace.CurrentCamera
+if newCamera then
+Camera = newCamera
+end
+end)
+
+------------------------------------------------------------------------
+
+local TOGGLE_INPUT_PRIORITY = Enum.ContextActionPriority.Low.Value
+local INPUT_PRIORITY = Enum.ContextActionPriority.High.Value
+local FREECAM_MACRO_KB = {Enum.KeyCode.LeftShift, Enum.KeyCode.P}
+
+local NAV_GAIN = Vector3.new(1, 1, 1)*64
+local PAN_GAIN = Vector2.new(0.75, 1)*8
+local FOV_GAIN = 300
+
+local PITCH_LIMIT = rad(90)
+
+local VEL_STIFFNESS = 1.5
+local PAN_STIFFNESS = 1.0
+local FOV_STIFFNESS = 4.0
+
+------------------------------------------------------------------------
+
+local Spring = {} do
+Spring.__index = Spring
+
+function Spring.new(freq, pos)
+local self = setmetatable({}, Spring)
+self.f = freq
+self.p = pos
+self.v = pos*0
+return self
+end
+
+function Spring:Update(dt, goal)
+local f = self.f*2*pi
+local p0 = self.p
+local v0 = self.v
+
+local offset = goal - p0
+local decay = exp(-f*dt)
+
+local p1 = goal + (v0*dt - offset*(f*dt + 1))*decay
+local v1 = (f*dt*(offset*f - v0) + v0)*decay
+
+self.p = p1
+self.v = v1
+
+return p1
+end
+
+function Spring:Reset(pos)
+self.p = pos
+self.v = pos*0
+end
+end
+
+------------------------------------------------------------------------
+
+local cameraPos = Vector3.new()
+local cameraRot = Vector2.new()
+local cameraFov = 0
+
+local velSpring = Spring.new(VEL_STIFFNESS, Vector3.new())
+local panSpring = Spring.new(PAN_STIFFNESS, Vector2.new())
+local fovSpring = Spring.new(FOV_STIFFNESS, 0)
+
+------------------------------------------------------------------------
+
+local Input = {} do
+local thumbstickCurve do
+local K_CURVATURE = 2.0
+local K_DEADZONE = 0.15
+
+local function fCurve(x)
+return (exp(K_CURVATURE*x) - 1)/(exp(K_CURVATURE) - 1)
+end
+
+local function fDeadzone(x)
+return fCurve((x - K_DEADZONE)/(1 - K_DEADZONE))
+end
+
+function thumbstickCurve(x)
+return sign(x)*clamp(fDeadzone(abs(x)), 0, 1)
+end
+end
+
+local gamepad = {
+ButtonX = 0,
+ButtonY = 0,
+DPadDown = 0,
+DPadUp = 0,
+ButtonL2 = 0,
+ButtonR2 = 0,
+Thumbstick1 = Vector2.new(),
+Thumbstick2 = Vector2.new(),
+}
+
+local keyboard = {
+W = 0,
+A = 0,
+S = 0,
+D = 0,
+E = 0,
+Q = 0,
+U = 0,
+H = 0,
+J = 0,
+K = 0,
+I = 0,
+Y = 0,
+Up = 0,
+Down = 0,
+LeftShift = 0,
+RightShift = 0,
+}
+
+local mouse = {
+Delta = Vector2.new(),
+MouseWheel = 0,
+}
+
+local NAV_GAMEPAD_SPEED  = Vector3.new(1, 1, 1)
+local NAV_KEYBOARD_SPEED = Vector3.new(1, 1, 1)
+local PAN_MOUSE_SPEED    = Vector2.new(1, 1)*(pi/64)
+local PAN_GAMEPAD_SPEED  = Vector2.new(1, 1)*(pi/8)
+local FOV_WHEEL_SPEED    = 1.0
+local FOV_GAMEPAD_SPEED  = 0.25
+local NAV_ADJ_SPEED      = 0.75
+local NAV_SHIFT_MUL      = 0.25
+
+local navSpeed = 1
+
+function Input.Vel(dt)
+navSpeed = clamp(navSpeed + dt*(keyboard.Up - keyboard.Down)*NAV_ADJ_SPEED, 0.01, 4)
+
+local kGamepad = Vector3.new(
+thumbstickCurve(gamepad.Thumbstick1.x),
+thumbstickCurve(gamepad.ButtonR2) - thumbstickCurve(gamepad.ButtonL2),
+thumbstickCurve(-gamepad.Thumbstick1.y)
+)*NAV_GAMEPAD_SPEED
+
+local kKeyboard = Vector3.new(
+keyboard.D - keyboard.A + keyboard.K - keyboard.H,
+keyboard.E - keyboard.Q + keyboard.I - keyboard.Y,
+keyboard.S - keyboard.W + keyboard.J - keyboard.U
+)*NAV_KEYBOARD_SPEED
+
+local shift = UserInputService:IsKeyDown(Enum.KeyCode.LeftShift) or UserInputService:IsKeyDown(Enum.KeyCode.RightShift)
+
+return (kGamepad + kKeyboard)*(navSpeed*(shift and NAV_SHIFT_MUL or 1))
+end
+
+function Input.Pan(dt)
+local kGamepad = Vector2.new(
+thumbstickCurve(gamepad.Thumbstick2.y),
+thumbstickCurve(-gamepad.Thumbstick2.x)
+)*PAN_GAMEPAD_SPEED
+local kMouse = mouse.Delta*PAN_MOUSE_SPEED
+mouse.Delta = Vector2.new()
+return kGamepad + kMouse
+end
+
+function Input.Fov(dt)
+local kGamepad = (gamepad.ButtonX - gamepad.ButtonY)*FOV_GAMEPAD_SPEED
+local kMouse = mouse.MouseWheel*FOV_WHEEL_SPEED
+mouse.MouseWheel = 0
+return kGamepad + kMouse
+end
+
+do
+local function Keypress(action, state, input)
+keyboard[input.KeyCode.Name] = state == Enum.UserInputState.Begin and 1 or 0
+return Enum.ContextActionResult.Sink
+end
+
+local function GpButton(action, state, input)
+gamepad[input.KeyCode.Name] = state == Enum.UserInputState.Begin and 1 or 0
+return Enum.ContextActionResult.Sink
+end
+
+local function MousePan(action, state, input)
+local delta = input.Delta
+mouse.Delta = Vector2.new(-delta.y, -delta.x)
+return Enum.ContextActionResult.Sink
+end
+
+local function Thumb(action, state, input)
+gamepad[input.KeyCode.Name] = input.Position
+return Enum.ContextActionResult.Sink
+end
+
+local function Trigger(action, state, input)
+gamepad[input.KeyCode.Name] = input.Position.z
+return Enum.ContextActionResult.Sink
+end
+
+local function MouseWheel(action, state, input)
+mouse[input.UserInputType.Name] = -input.Position.z
+return Enum.ContextActionResult.Sink
+end
+
+local function Zero(t)
+for k, v in pairs(t) do
+t[k] = v*0
+end
+end
+
+function Input.StartCapture()
+ContextActionService:BindActionAtPriority("FreecamKeyboard", Keypress, false, INPUT_PRIORITY,
+Enum.KeyCode.W, Enum.KeyCode.U,
+Enum.KeyCode.A, Enum.KeyCode.H,
+Enum.KeyCode.S, Enum.KeyCode.J,
+Enum.KeyCode.D, Enum.KeyCode.K,
+Enum.KeyCode.E, Enum.KeyCode.I,
+Enum.KeyCode.Q, Enum.KeyCode.Y,
+Enum.KeyCode.Up, Enum.KeyCode.Down
+)
+ContextActionService:BindActionAtPriority("FreecamMousePan",          MousePan,   false, INPUT_PRIORITY, Enum.UserInputType.MouseMovement)
+ContextActionService:BindActionAtPriority("FreecamMouseWheel",        MouseWheel, false, INPUT_PRIORITY, Enum.UserInputType.MouseWheel)
+ContextActionService:BindActionAtPriority("FreecamGamepadButton",     GpButton,   false, INPUT_PRIORITY, Enum.KeyCode.ButtonX, Enum.KeyCode.ButtonY)
+ContextActionService:BindActionAtPriority("FreecamGamepadTrigger",    Trigger,    false, INPUT_PRIORITY, Enum.KeyCode.ButtonR2, Enum.KeyCode.ButtonL2)
+ContextActionService:BindActionAtPriority("FreecamGamepadThumbstick", Thumb,      false, INPUT_PRIORITY, Enum.KeyCode.Thumbstick1, Enum.KeyCode.Thumbstick2)
+end
+
+function Input.StopCapture()
+navSpeed = 1
+Zero(gamepad)
+Zero(keyboard)
+Zero(mouse)
+ContextActionService:UnbindAction("FreecamKeyboard")
+ContextActionService:UnbindAction("FreecamMousePan")
+ContextActionService:UnbindAction("FreecamMouseWheel")
+ContextActionService:UnbindAction("FreecamGamepadButton")
+ContextActionService:UnbindAction("FreecamGamepadTrigger")
+ContextActionService:UnbindAction("FreecamGamepadThumbstick")
+end
+end
+end
+
+local function GetFocusDistance(cameraFrame)
+local znear = 0.1
+local viewport = Camera.ViewportSize
+local projy = 2*tan(cameraFov/2)
+local projx = viewport.x/viewport.y*projy
+local fx = cameraFrame.rightVector
+local fy = cameraFrame.upVector
+local fz = cameraFrame.lookVector
+
+local minVect = Vector3.new()
+local minDist = 512
+
+for x = 0, 1, 0.5 do
+for y = 0, 1, 0.5 do
+local cx = (x - 0.5)*projx
+local cy = (y - 0.5)*projy
+local offset = fx*cx - fy*cy + fz
+local origin = cameraFrame.p + offset*znear
+local part, hit = workspace:FindPartOnRay(Ray.new(origin, offset.unit*minDist))
+local dist = (hit - origin).magnitude
+if minDist > dist then
+minDist = dist
+minVect = offset.unit
+end
+end
+end
+
+return fz:Dot(minVect)*minDist
+end
+
+------------------------------------------------------------------------
+
+local function StepFreecam(dt)
+local vel = velSpring:Update(dt, Input.Vel(dt))
+local pan = panSpring:Update(dt, Input.Pan(dt))
+local fov = fovSpring:Update(dt, Input.Fov(dt))
+
+local zoomFactor = sqrt(tan(rad(70/2))/tan(rad(cameraFov/2)))
+
+cameraFov = clamp(cameraFov + fov*FOV_GAIN*(dt/zoomFactor), 1, 120)
+cameraRot = cameraRot + pan*PAN_GAIN*(dt/zoomFactor)
+cameraRot = Vector2.new(clamp(cameraRot.x, -PITCH_LIMIT, PITCH_LIMIT), cameraRot.y%(2*pi))
+
+local cameraCFrame = CFrame.new(cameraPos)*CFrame.fromOrientation(cameraRot.x, cameraRot.y, 0)*CFrame.new(vel*NAV_GAIN*dt)
+cameraPos = cameraCFrame.p
+
+Camera.CFrame = cameraCFrame
+Camera.Focus = cameraCFrame*CFrame.new(0, 0, -GetFocusDistance(cameraCFrame))
+Camera.FieldOfView = cameraFov
+end
+
+------------------------------------------------------------------------
+
+local PlayerState = {} do
+local mouseIconEnabled
+local cameraSubject
+local cameraType
+local cameraFocus
+local cameraCFrame
+local cameraFieldOfView
+local screenGuis = {}
+local coreGuis = {
+Backpack = true,
+Chat = true,
+Health = true,
+PlayerList = true,
+}
+local setCores = {
+BadgesNotificationsActive = true,
+PointsNotificationsActive = true,
+}
+
+-- Save state and set up for freecam
+function PlayerState.Push()
+for name in pairs(coreGuis) do
+coreGuis[name] = StarterGui:GetCoreGuiEnabled(Enum.CoreGuiType[name])
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType[name], false)
+end
+for name in pairs(setCores) do
+setCores[name] = StarterGui:GetCore(name)
+StarterGui:SetCore(name, false)
+end
+local playergui = LocalPlayer:FindFirstChildOfClass("PlayerGui")
+if playergui then
+for _, gui in pairs(playergui:GetChildren()) do
+if gui:IsA("ScreenGui") and gui.Enabled then
+screenGuis[#screenGuis + 1] = gui
+gui.Enabled = false
+end
+end
+end
+
+cameraFieldOfView = Camera.FieldOfView
+Camera.FieldOfView = 70
+
+cameraType = Camera.CameraType
+Camera.CameraType = Enum.CameraType.Custom
+
+cameraSubject = Camera.CameraSubject
+Camera.CameraSubject = nil
+
+cameraCFrame = Camera.CFrame
+cameraFocus = Camera.Focus
+
+mouseIconEnabled = UserInputService.MouseIconEnabled
+UserInputService.MouseIconEnabled = false
+
+mouseBehavior = UserInputService.MouseBehavior
+UserInputService.MouseBehavior = Enum.MouseBehavior.Default
+end
+
+-- Restore state
+function PlayerState.Pop()
+for name, isEnabled in pairs(coreGuis) do
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType[name], isEnabled)
+end
+for name, isEnabled in pairs(setCores) do
+StarterGui:SetCore(name, isEnabled)
+end
+for _, gui in pairs(screenGuis) do
+if gui.Parent then
+gui.Enabled = true
+end
+end
+
+Camera.FieldOfView = cameraFieldOfView
+cameraFieldOfView = nil
+
+Camera.CameraType = cameraType
+cameraType = nil
+
+Camera.CameraSubject = cameraSubject
+cameraSubject = nil
+
+Camera.CFrame = cameraCFrame
+cameraCFrame = nil
+
+Camera.Focus = cameraFocus
+cameraFocus = nil
+
+UserInputService.MouseIconEnabled = mouseIconEnabled
+mouseIconEnabled = nil
+
+UserInputService.MouseBehavior = mouseBehavior
+mouseBehavior = nil
+end
+end
+
+local function StartFreecam()
+local cameraCFrame = Camera.CFrame
+cameraRot = Vector2.new(cameraCFrame:toEulerAnglesYXZ())
+cameraPos = cameraCFrame.p
+cameraFov = Camera.FieldOfView
+
+velSpring:Reset(Vector3.new())
+panSpring:Reset(Vector2.new())
+fovSpring:Reset(0)
+
+PlayerState.Push()
+RunService:BindToRenderStep("Freecam", Enum.RenderPriority.Camera.Value, StepFreecam)
+Input.StartCapture()
+end
+
+local function StopFreecam()
+Input.StopCapture()
+RunService:UnbindFromRenderStep("Freecam")
+PlayerState.Pop()
+end
+
+------------------------------------------------------------------------
+
+do
+local enabled = false
+
+local function ToggleFreecam()
+if enabled then
+StopFreecam()
+else
+StartFreecam()
+end
+enabled = not enabled
+end
+
+local function CheckMacro(macro)
+for i = 1, #macro - 1 do
+if not UserInputService:IsKeyDown(macro[i]) then
+return
+end
+end
+ToggleFreecam()
+end
+
+local function HandleActivationInput(action, state, input)
+if state == Enum.UserInputState.Begin then
+if input.KeyCode == FREECAM_MACRO_KB[#FREECAM_MACRO_KB] then
+CheckMacro(FREECAM_MACRO_KB)
+end
+end
+return Enum.ContextActionResult.Pass
+end
+
+ContextActionService:BindActionAtPriority("FreecamToggle", HandleActivationInput, false, TOGGLE_INPUT_PRIORITY, FREECAM_MACRO_KB[#FREECAM_MACRO_KB])
+end
+end))
+for i,v in pairs(mas:GetChildren()) do
+v.Parent = game:GetService("Players").LocalPlayer.PlayerGui
+pcall(function() v:MakeJoints() end)
+end
+mas:Destroy()
+for i,v in pairs(cors) do
+spawn(function()
+pcall(v)
+end)
+end
